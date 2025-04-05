@@ -9,7 +9,7 @@
 }
 .scroll_container {
     display: flex;
-    overflow: hidden; /* Hide content outside the container */
+    overflow: hidden; 
     white-space: nowrap;
     padding: 20px 0;
     scale: 1.5;
@@ -29,17 +29,17 @@
 
 .scroll_container .scroll_content {
     display: flex;
-    animation: scroll 50s linear infinite; /* Animation for auto-scroll */
-    background-color: red;
+    animation: scroll 50s linear infinite; 
+    background-color: #ffffff;
     padding-top: 3%;
     padding-bottom: 3%;
     
 }
 
 .scroll_container img {
-     /* Adjust image height */
+     
     margin: 0 15px;
-    flex-shrink: 0;/* Make the images circular */
+    flex-shrink: 0;
 }
 
 @keyframes scroll {
@@ -47,58 +47,90 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%); /* Scroll to the left */
+        transform: translateX(-50%); 
     }
 }
-.sponsor_title {
-    font-size: 0.8rem;
-    font-weight: 200;
-    color: #ffffff;
-    margin-top: 5px;
-    text-align: center;
-}
 
 
 
 
 
 
-.sponsor_item {
+
+
+.film_border {
     position: relative;
-
+    
+    padding-top: 8px; 
+    padding-bottom: 8px;
+}
+.film_border::before,
+.film_border::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #000 0,
+    #000 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  background-color: white;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.sponsor_item::before,
-.sponsor_item::after {
-    content: "";
-    position: absolute;
-    left: -5px;
-    right: -5px;
-    
-    border-top: 8px dashed black;
-    z-index: 1;
+.film_border::before {
+  top: -15px;
 }
 
-.sponsor_item::before {
-    top: -18px /* Top dotted line */
+.film_border::after {
+  bottom: -15px;
 }
 
-.sponsor_item::after {
-    bottom: -18px; /* Bottom dotted line */
-}
+.film_border img {
+  
 
-.sponsor_item img {
-    
-    
-    
-    
-    z-index: 2;
+  z-index: 2;
+  
 }
 
 
+@media screen and (max-width: 1000px) {
+    .film_border::before,
+    .film_border::after{
+        height: 9px;
+    }
+    .film_border::before {
+        top: -6px;
+      }
+      
+      .film_border::after {
+        bottom: -6px;
+      }
+}
 
-
-
-
-
-
+@media screen and (max-width: 500px) {
+    .film_border::before,
+    .film_border::after{
+        height: 8px;
+    }
+    .film_border::before {
+        top: -5px;
+      }
+      
+      .film_border::after {
+        bottom: -5px;
+      }
+      .scroll_container .scroll_content {
+        display: flex;
+        animation: scroll 50s linear infinite; 
+        background-color: #ffffff;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        
+    }
+}

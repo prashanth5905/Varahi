@@ -29,8 +29,9 @@ const Gallery = () => {
                     {sponsors.concat(sponsors).map((sponsor, index) => ( // Duplicated array for infinite loop effect
                         <div className={styles.slide} key={index}>
                             <div className={styles.sponsor_item}>
-                                <img src={sponsor.img} alt={sponsor.title} />
-                                
+                                <div className={styles.film_border}>
+                                    <img src={sponsor.img} alt={sponsor.title} />
+                                </div>
                             </div>
                         </div>
                     ))}

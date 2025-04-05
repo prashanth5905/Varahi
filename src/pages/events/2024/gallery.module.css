@@ -15,6 +15,7 @@
     scale: 1.5;
     margin-inline: 5%;
     margin: 9%;
+    height: 100%;
 }
 .heading_sponsors {
     font-size: 150%;
@@ -29,12 +30,15 @@
 .scroll_container .scroll_content {
     display: flex;
     animation: scroll 50s linear infinite; /* Animation for auto-scroll */
+    background-color: red;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    
 }
 
 .scroll_container img {
      /* Adjust image height */
     margin: 0 15px;
-    
     flex-shrink: 0;/* Make the images circular */
 }
 
@@ -53,3 +57,48 @@
     margin-top: 5px;
     text-align: center;
 }
+
+
+
+
+
+
+.sponsor_item {
+    position: relative;
+
+}
+
+.sponsor_item::before,
+.sponsor_item::after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    
+    border-top: 8px dashed black;
+    z-index: 1;
+}
+
+.sponsor_item::before {
+    top: -18px /* Top dotted line */
+}
+
+.sponsor_item::after {
+    bottom: -18px; /* Bottom dotted line */
+}
+
+.sponsor_item img {
+    
+    
+    
+    
+    z-index: 2;
+}
+
+
+
+
+
+
+
+
